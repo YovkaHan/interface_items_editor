@@ -34,7 +34,7 @@
   </head>
 
   <body>
-
+  <div class="container-fluid" style="padding: 0px">
     <div class="container">
       <div class="header clearfix">
         <nav>
@@ -82,10 +82,21 @@
       </footer>
 
     </div> <!-- /container -->
+    <div class="dev_toolbar">
+      <div class="buttons">
+        <button class="hide_tb"><span>Hide</span></button>
+        <button class="show_tb"><span>Show</span></button>
+        <button class="show_top_tb"><span>Show top</span></button>
+        <button class="show_bottom_tb"><span>Show bottom</span></button>
+      </div>
+      <div class="content"></div>
+    </div>
+  </div>
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script src="js/dev_toolbar.js" defer></script>
     <script src="js/action_area.js" defer></script>
   </body>
 </html>

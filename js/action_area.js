@@ -1,4 +1,5 @@
 (function() {
+    /* Action area */
     var active_area = $('.action_area');
     var color = ["rgb(45, 212, 41)", "rgb(21, 22, 68)", "rgb(212, 45, 56)", "rgb(212, 0, 155)", "rgb(1, 0, 200)"];
     console.log(active_area);
@@ -15,9 +16,4 @@
         $(this).unbind('mouseleave');
     });
 
-// на каждый объект active_area завести счетчик для смены цветв границы
-
-// функция смены цвета объекта
-
-// применить фунцию на :hover объектах
 })();

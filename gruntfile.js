@@ -4,14 +4,15 @@ module.exports = function(grunt) {
 		sass: {
 			dist: {
 				files: {
-					'css/action_area.css' : 'scss/action_area.scss'
+					'css/action_area.css' : 'scss/action_area.scss',
+					'css/dev_toolbar.css' : 'scss/dev_toolbar.scss',
 				}
 			}
 		},
 		cssmin: {
 			foo: {
 				files: {
-					'css/main.min.css' : ['css/action_area.css']
+					'css/main.min.css' : ['css/action_area.css', 'css/dev_toolbar.css']
 				}
 			}
 		},
