@@ -10,6 +10,8 @@
 
     <title>Bootstrap Sample Page</title>
 
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -22,6 +24,7 @@
 	
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
+    <script   src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"   integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="   crossorigin="anonymous"></script>
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
@@ -89,7 +92,20 @@
         <button class="show_top_tb"><span>Show top</span></button>
         <button class="show_bottom_tb"><span>Show bottom</span></button>
       </div>
-      <div class="content"></div>
+      <div class="content">
+        <div class="t_row">
+          <div class="slider_div">
+            <label for="width">Width</label>
+            <input id="width" type="number" max="100" maxlength="3" size="4" value="100">
+            <div class="slider" id="width_s"></div>
+          </div>
+          <div class="slider_div">
+            <label for="height">Height</label>
+            <input id="height" type="number" max="100" maxlength="3" size="4" value="100">
+            <div class="slider" id="height_s"></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 

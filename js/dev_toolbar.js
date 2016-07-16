@@ -96,5 +96,34 @@
         toolbar_obj.show_bt();
     });
 
+    /* Sliders */
+    $(".slider").slider();
+
+    var width_slider =  $(".slider#width_s");
+    var height_slider =  $(".slider#height_s");
+
+    width_slider.slider( "option", "value", $("input#width").val());
+    height_slider.slider( "option", "value", $("input#height").val());
+
+    width_slider.slider({
+        change: function( event, ui ) {
+            $("input#width").val(width_slider.slider("value"));
+        }
+    });
+
+    height_slider.slider({
+        change: function( event, ui ) {
+            $("input#height").val(height_slider.slider("value"));
+        }
+    });
+
+    /*  -- -- --  */
+    $("input#width").change(function() {
+        width_slider.slider( "option", "value", $("input#width").val());
+    });
+
+    $("input#height").change(function() {
+        height_slider.slider( "option", "value", $("input#height").val());
+    });
 
 })();

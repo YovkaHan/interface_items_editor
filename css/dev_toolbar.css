@@ -8,8 +8,25 @@
   background-color: chartreuse;
   z-index: 100; }
   .dev_toolbar .content {
+    display: inline-block;
     width: 100%;
     height: 174px;
     background-color: black; }
+    .dev_toolbar .content .t_row {
+      display: inline-flex; }
+      .dev_toolbar .content .t_row .slider_div {
+        padding: 10px;
+        margin: 5px;
+        width: 100px;
+        border: 1px solid greenyellow;
+        text-align: center; }
+        .dev_toolbar .content .t_row .slider_div input {
+          color: magenta;
+          height: 22px;
+          width: 66%;
+          margin-bottom: 5px; }
+        .dev_toolbar .content .t_row .slider_div label {
+          margin: 0;
+          color: magenta; }
 
 /*# sourceMappingURL=dev_toolbar.css.map */
