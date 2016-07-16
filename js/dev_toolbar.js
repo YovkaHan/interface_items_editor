@@ -9,18 +9,18 @@
         this.pos_top = false;
         this.object = object;
         this.hide = function () {
-            if(this.opened) {
+            if (this.opened) {
                 this.opened = false;
-                if(this.pos_bt) {
+                if (this.pos_bt) {
                     this.object.animate({
-                        bottom: "-=180"
+                        bottom: "-=175"
                     }, this.speed, function () {
                         // Animation complete.
                     });
                 }
-                else if(this.pos_top) {
+                else if (this.pos_top) {
                     this.object.animate({
-                        top: "-=180"
+                        top: "-=175"
                     }, this.speed, function () {
                         // Animation complete.
                     });
@@ -28,18 +28,18 @@
             }
         };
         this.show = function () {
-            if(!this.opened) {
+            if (!this.opened) {
                 this.opened = true;
-                if(this.pos_bt) {
+                if (this.pos_bt) {
                     this.object.animate({
-                        bottom: "+=180"
+                        bottom: "+=175"
                     }, this.speed, function () {
                         // Animation complete.
                     });
                 }
-                else if(this.pos_top) {
+                else if (this.pos_top) {
                     this.object.animate({
-                        top: "+=180"
+                        top: "+=175"
                     }, this.speed, function () {
                         // Animation complete.
                     });
@@ -47,21 +47,32 @@
             }
         };
         this.show_top = function () {
-            if(this.pos_top){}
-            else if(this.pos_bt) {
-                this.opened = false;
+            if (this.pos_top) {
+            }
+            else if (this.pos_bt) {
                 this.pos_bt = false;
                 this.pos_top = true;
-                this.object.animate({
-                    bottom: "-=200"
-                }, this.speed, (function () {
-                }
-                ));
-                this.object.delay.bind(this.show(),1);
+                this.object.fadeIn()
+                    .css({top: -175})
+                    .animate({top: 0}, 1000, function () {
+                        //callback
+                    });
+                this.object.find(".buttons").before(toolbar.find(".content"));
+            }
+        };
+        this.show_bt = function () {
+            if (this.pos_top) {
+                this.pos_bt = true;
+                this.pos_top = false;
+                this.opened = false;
+                this.object.css("top", "");
+                this.object.fadeIn()
+                    .css({bottom: -175});
+                this.show();
+                this.object.find(".content").before(toolbar.find(".buttons"));
             }
         };
     }
-
     /* --------------------------------------- */
 
     var hide_toolbar = $('.hide_tb');
@@ -73,14 +84,13 @@
 
     hide_toolbar.click( function(){
         toolbar_obj.hide();
-       // toolbar.find(".buttons").before(toolbar.find(".content"));
+       //
     });
     show_toolbar.click( function(){
         toolbar_obj.show();
     });
     show_top_tb.click( function(){
         toolbar_obj.show_top();
-        //toolbar.find(".buttons").before(toolbar.find(".content"));
     });
     show_bottom_tb.click( function(){
         toolbar_obj.show_bt();
