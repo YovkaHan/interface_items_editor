@@ -24,6 +24,7 @@
 	
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
+    <!-- <script src="js/processing.min.js"></script>-->
     <script   src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"   integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="   crossorigin="anonymous"></script>
 
 	<!-- Latest compiled and minified JavaScript -->
@@ -37,6 +38,7 @@
   </head>
 
   <body>
+  <div class="dev_set" onclick="dev_open();"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></div>
   <div class="container-fluid" style="padding: 0px">
     <div class="container">
       <div class="header clearfix">
@@ -109,10 +111,10 @@
     </div>
   </div>
 
-
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
-    <script src="js/dev_toolbar.js" defer></script>
-    <script src="js/action_area.js" defer></script>
+  <script>function dev_open(){if($('.dev_toolbar').css('display')=='none'){$('.dev_toolbar').css('display','block')}else {$('.dev_toolbar').css('display','none')}}</script>
+  <script src="js/ie10-viewport-bug-workaround.js"></script>
+  <script src="js/dev_toolbar.js" defer></script>
+  <script src="js/action_area.js" defer></script>
   </body>
 </html>

@@ -1,13 +1,21 @@
 (function() {
+    var toolbar = $('.dev_toolbar');
+    var toolbar_obj = new Toolbar(toolbar);
     /* Dev_toolbar */
 
     /* -----------Toolbar Class----------- */
+
     function Toolbar(object) {
-        this.speed = 1000;
+        Toolbar.prototype.speed = 1000;
+        Toolbar.prototype.constructor = Toolbar;
         this.opened = true;
         this.pos_bt = true;
         this.pos_top = false;
         this.object = object;
+        this.hide_toolbar = object.find('.hide_tb');
+        this.show_toolbar = object.find('.show_tb');
+        this.show_top_tb =object.find('.show_top_tb');
+        this.show_bottom_tb = object.find('.show_bottom_tb');
         this.hide = function () {
             if (this.opened) {
                 this.opened = false;
@@ -21,7 +29,7 @@
                 else if (this.pos_top) {
                     this.object.animate({
                         top: "-=175"
-                    }, this.speed, function () {
+                    }, speed, function () {
                         // Animation complete.
                     });
                 }
@@ -40,7 +48,7 @@
                 else if (this.pos_top) {
                     this.object.animate({
                         top: "+=175"
-                    }, this.speed, function () {
+                    }, speed, function () {
                         // Animation complete.
                     });
                 }
@@ -52,6 +60,7 @@
             else if (this.pos_bt) {
                 this.pos_bt = false;
                 this.pos_top = true;
+                this.opened = true;
                 this.object.fadeIn()
                     .css({top: -175})
                     .animate({top: 0}, 1000, function () {
@@ -72,29 +81,20 @@
                 this.object.find(".content").before(toolbar.find(".buttons"));
             }
         };
+        this.hide_toolbar.on('click', function() {
+            toolbar_obj.hide();
+        });
+        this.show_toolbar.on('click', function() {
+            toolbar_obj.show()
+        });
+        this.show_top_tb.on('click', function() {
+            toolbar_obj.show_top()
+        });
+        this.show_bottom_tb.on('click', function() {
+            toolbar_obj.show_bt()
+        });
     }
     /* --------------------------------------- */
-
-    var hide_toolbar = $('.hide_tb');
-    var show_toolbar = $('.show_tb');
-    var show_top_tb = $('.show_top_tb');
-    var show_bottom_tb = $('.show_bottom_tb');
-    var toolbar = $('.dev_toolbar');
-    var toolbar_obj = new Toolbar(toolbar);
-
-    hide_toolbar.click( function(){
-        toolbar_obj.hide();
-       //
-    });
-    show_toolbar.click( function(){
-        toolbar_obj.show();
-    });
-    show_top_tb.click( function(){
-        toolbar_obj.show_top();
-    });
-    show_bottom_tb.click( function(){
-        toolbar_obj.show_bt();
-    });
 
     /* Sliders */
     $(".slider").slider();
