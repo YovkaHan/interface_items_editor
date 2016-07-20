@@ -5,8 +5,7 @@
   left: 20px;
   background-color: transparent;
   border: none;
-  opacity: 0.50;
-  z-index: 1000; }
+  opacity: 0.50; }
   .dev_set:hover {
     opacity: 1.0;
     cursor: default; }
@@ -42,6 +41,18 @@
           width: 66%;
           margin-bottom: 5px; }
         .dev_toolbar .content .t_row .slider_div label {
+          margin: 0;
+          color: #ff433f; }
+      .dev_toolbar .content .t_row .color_div {
+        width: 200px;
+        padding: 16px 0 0 0;
+        text-align: center; }
+        .dev_toolbar .content .t_row .color_div input {
+          color: #ff433f;
+          height: 22px;
+          width: 80%;
+          margin-bottom: 5px; }
+        .dev_toolbar .content .t_row .color_div label {
           margin: 0;
           color: #ff433f; }
 

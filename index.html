@@ -24,6 +24,10 @@
 	
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
+
+    <!-- jscolor -->
+    <script src="js/jscolor.min.js"></script>
+
     <!-- <script src="js/processing.min.js"></script>-->
     <script   src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"   integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="   crossorigin="anonymous"></script>
 
@@ -67,6 +71,15 @@
         <button class="show_tb"><span>Show</span></button>
         <button class="show_top_tb"><span>Show top</span></button>
         <button class="show_bottom_tb"><span>Show bottom</span></button>
+        <button class="unbind_tb"><span>Unbind</span></button>
+        <div class="circle" style="	    width: 20px;
+    height: 20px;
+    background: red;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    float: left;
+    margin-top: 3px;"></div>
       </div>
       <div class="content">
         <div class="t_row">
@@ -80,18 +93,29 @@
             <input id="height" type="number" max="100" maxlength="3" size="4" value="100">
             <div class="slider" id="height_s"></div>
           </div>
+          <div class="color_div">
+            <label for="jscolor_id">Color</label>
+            <input id="jscolor_id" class="jscolor">
+          </div>
         </div>
       </div>
     </div>
   </div>
 
   <script>function dev_open(){
+    window.d_a = false;    // Flag for Dev Mode
+    window.enter = false;   // Flag of entrance
+    window.alreadyB = false;   // Flag for elements bind
     if($('.dev_toolbar').css('display')=='none') {
+      d_a = true;
       $('.dev_toolbar').css('display','block').animate({
         opacity: "+=1"
       }, 500, function () {
       });
     }else {
+      window.d_a = false;    // Flag for Dev Mode
+      window.enter = false;   // Flag of entrance
+      window.alreadyB = false;   // Flag for elements bind
       $('.dev_toolbar').animate({
         opacity: "-=1"
       }, 500, function () {
@@ -102,6 +126,7 @@
   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   <script src="js/ie10-viewport-bug-workaround.js"></script>
   <script src="js/dev_toolbar.js" defer></script>
+  <script src="js/dev_mode.js" defer></script>
   <script src="js/action_area.js" defer></script>
   </body>
 </html>

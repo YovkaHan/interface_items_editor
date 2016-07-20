@@ -1,5 +1,6 @@
 (function() {
     var toolbar = $('.dev_toolbar');
+    var circle = $('.dev_toolbar .circle');
     var toolbar_obj = new Toolbar(toolbar);
     /* Dev_toolbar */
 
@@ -127,6 +128,10 @@
     width_slider.slider({
         change: function( event, ui ) {
             $("input#width").val(width_slider.slider("value"));
+            if(window.alreadyB)
+            {
+                window.ander_c.object.css('width', width_slider.slider("value"))
+            }
         }
     });
 
@@ -145,4 +150,19 @@
         height_slider.slider( "option", "value", $("input#height").val());
     });
 
+    $("input#jscolor_id").change(function() {
+        if(window.alreadyB)
+        {
+            window.ander_c.object.css('background-color', '#'+$("input#jscolor_id").val())
+        }
+    });
+
+    /* Event "Develop" */
+
+
+    /*          */
+    $('.unbind_tb').on('click', function() {
+        window.alreadyB = false;
+        circle.css('background','red');
+    });
 })();

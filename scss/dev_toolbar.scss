@@ -6,7 +6,6 @@
   background-color:transparent;
   border: none;
   opacity: 0.50;
-  z-index: 1000;
 
   &:hover {
     opacity: 1.0;
@@ -43,16 +42,32 @@
       display: inline-flex;
 
       .slider_div {
-        padding: 10px;
-        margin: 5px;
-        width: 100px;
-        border: 1px solid #9fb4ff;
+         padding: 10px;
+         margin: 5px;
+         width: 100px;
+         border: 1px solid #9fb4ff;
+         text-align: center;
+
+         input {
+           color: #ff433f;
+           height: 22px;
+           width: 66%;
+           margin-bottom: 5px;
+         }
+         label {
+           margin: 0;
+           color: #ff433f;
+         }
+       }
+      .color_div {
+        width: 200px;
+        padding: 16px 0 0 0;
         text-align: center;
 
         input {
           color: #ff433f;
           height: 22px;
-          width: 66%;
+          width: 80%;
           margin-bottom: 5px;
         }
         label {
