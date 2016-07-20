@@ -6,13 +6,15 @@ module.exports = function(grunt) {
 				files: {
 					'css/action_area.css' : 'scss/action_area.scss',
 					'css/dev_toolbar.css' : 'scss/dev_toolbar.scss',
+					'css/body.css' : 'scss/body.scss',
+					'css/my_container.css' : 'scss/my_container.scss',
 				}
 			}
 		},
 		cssmin: {
 			foo: {
 				files: {
-					'css/main.min.css' : ['css/action_area.css', 'css/dev_toolbar.css']
+					'css/main.min.css' : ['css/action_area.css', 'css/dev_toolbar.css', 'css/body.css', 'css/my_container.css']
 				}
 			}
 		},

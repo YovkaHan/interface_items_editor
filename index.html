@@ -38,55 +38,29 @@
   </head>
 
   <body>
-  <div class="dev_set" onclick="dev_open();"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></div>
-  <div class="container-fluid" style="padding: 0px">
-    <div class="container">
-      <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="#">Home</a></li>
-            <li role="presentation"><a href="#">About</a></li>
-            <li role="presentation"><a href="#">Contact</a></li>
-          </ul>
-        </nav>
-        <h3 class="text-muted">Project name</h3>
+
+  <div class="my_container">
+    <div class="big_1">
+    <div class="left_side_1">
+      <div class="place">
+        <div class="dev_set" onclick="dev_open();"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></div>
       </div>
-
-      <div class="jumbotron action_area">
-        <h1>Jumbotron heading</h1>
-        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
+      <div class="navigation"></div>
+    </div>
+    <div class="left_side_2">
+      <div class="profile"></div>
+    </div>
+    <div class="action_"></div>
+    <div class="right_side">
+      <div class="settings"></div>
+      <div class="commercial"></div>
+    </div>
       </div>
+    <div class="big_2">
+      <div class="container-fluid"></div>
+    </div>
+  </div>
 
-      <div class="row marketing">
-        <div class="col-lg-6 action_area">
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
-
-        <div class="col-lg-6 action_area">
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
-      </div>
-
-      <footer class="footer">
-        <p>&copy; 2015 Company, Inc.</p>
-      </footer>
-
-    </div> <!-- /container -->
     <div class="dev_toolbar">
       <div class="buttons">
         <button class="hide_tb"><span>Hide</span></button>
@@ -111,8 +85,21 @@
     </div>
   </div>
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-  <script>function dev_open(){if($('.dev_toolbar').css('display')=='none'){$('.dev_toolbar').css('display','block')}else {$('.dev_toolbar').css('display','none')}}</script>
+  <script>function dev_open(){
+    if($('.dev_toolbar').css('display')=='none') {
+      $('.dev_toolbar').css('display','block').animate({
+        opacity: "+=1"
+      }, 500, function () {
+      });
+    }else {
+      $('.dev_toolbar').animate({
+        opacity: "-=1"
+      }, 500, function () {
+        $('.dev_toolbar').css('display','none')
+      });
+    }
+  }</script>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   <script src="js/ie10-viewport-bug-workaround.js"></script>
   <script src="js/dev_toolbar.js" defer></script>
   <script src="js/action_area.js" defer></script>

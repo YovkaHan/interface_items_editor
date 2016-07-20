@@ -1,11 +1,13 @@
 /* Development Toolbar */
 .dev_set {
   position: fixed;
-  top: 20px;
+  top: 15px;
   left: 20px;
   background-color:transparent;
   border: none;
   opacity: 0.50;
+  z-index: 1000;
+
   &:hover {
     opacity: 1.0;
     cursor: default;
@@ -24,6 +26,7 @@
   bottom: 0;
   background-color: #9fb4ff;
   z-index: 100;
+  opacity: 0.0;
 
   .buttons {
     .hide_tb{

@@ -1,7 +1,7 @@
 (function() {
     /* Action area */
     var active_area = $('.action_area');
-    var color = ["rgb(45, 212, 41)", "rgb(21, 22, 68)", "rgb(212, 45, 56)", "rgb(212, 0, 155)", "rgb(1, 0, 200)"];
+    var color = ["rgb(45, 212, 41)", "rgb(21, 22, 68)", "rgb(212, 45, 56)", "rgb(212, 0, 155)", "rgb(1, 0, 212)"];
     console.log(active_area);
 
     active_area.hover(function(){

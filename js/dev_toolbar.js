@@ -12,44 +12,48 @@
         this.pos_bt = true;
         this.pos_top = false;
         this.object = object;
-        this.hide_toolbar = object.find('.hide_tb');
-        this.show_toolbar = object.find('.show_tb');
-        this.show_top_tb =object.find('.show_top_tb');
-        this.show_bottom_tb = object.find('.show_bottom_tb');
+        this.hide_toolbar = object.find('.hide_tb');               // "Hide" Button
+        this.show_toolbar = object.find('.show_tb');               // "Show" Button
+        this.show_top_tb = object.find('.show_top_tb');            // "Show at Top" Button
+        this.show_bottom_tb = object.find('.show_bottom_tb');      // "Show at bottom" Button
         this.hide = function () {
             if (this.opened) {
+                var self = this;                                      // this-copy
                 this.opened = false;
+                this.object.find('.buttons button').prop('disabled', true);          // disabled all control buttons
                 if (this.pos_bt) {
                     this.object.animate({
                         bottom: "-=175"
                     }, this.speed, function () {
-                        // Animation complete.
+                        self.object.find('.buttons button').prop('disabled', false);     // enabled all control buttons
                     });
                 }
                 else if (this.pos_top) {
                     this.object.animate({
                         top: "-=175"
-                    }, speed, function () {
-                        // Animation complete.
+                    }, this.speed, function () {
+                        self.object.find('.buttons button').prop('disabled', false);     // enabled all control buttons
                     });
                 }
             }
         };
         this.show = function () {
             if (!this.opened) {
+                var self = this;
                 this.opened = true;
+                this.object.find('.buttons button').prop('disabled', true);          // disabled all control buttons
                 if (this.pos_bt) {
                     this.object.animate({
                         bottom: "+=175"
                     }, this.speed, function () {
-                        // Animation complete.
+                        self.object.find('.buttons button').prop('disabled', false);     // enabled all control buttons
                     });
                 }
                 else if (this.pos_top) {
                     this.object.animate({
                         top: "+=175"
-                    }, speed, function () {
-                        // Animation complete.
+                    }, this.speed, function () {
+                        self.object.find('.buttons button').prop('disabled', false);     // enabled all control buttons
                     });
                 }
             }
@@ -58,27 +62,42 @@
             if (this.pos_top) {
             }
             else if (this.pos_bt) {
+                var self = this;
                 this.pos_bt = false;
                 this.pos_top = true;
                 this.opened = true;
-                this.object.fadeIn()
-                    .css({top: -175})
-                    .animate({top: 0}, 1000, function () {
-                        //callback
+                this.object.find('.buttons button').prop('disabled', true);     // enabled all control buttons
+                this.object.animate({
+                    bottom: "-=200"
+                }, this.speed, function () {
+                    self.object.find(".buttons").before(toolbar.find(".content"));
+                    self.object.css({bottom: 0, top: -200});
+                    self.object.animate({
+                        top: "+=200"
+                    }, self.speed, function () {
+                        self.object.find('.buttons button').prop('disabled', false);     // enabled all control buttons
                     });
-                this.object.find(".buttons").before(toolbar.find(".content"));
+                });
             }
         };
         this.show_bt = function () {
             if (this.pos_top) {
+                var self = this;
                 this.pos_bt = true;
                 this.pos_top = false;
-                this.opened = false;
-                this.object.css("top", "");
-                this.object.fadeIn()
-                    .css({bottom: -175});
-                this.show();
-                this.object.find(".content").before(toolbar.find(".buttons"));
+                this.opened = true;
+                this.object.find('.buttons button').prop('disabled', true);     // enabled all control buttons
+                this.object.animate({
+                    top: "-=200"
+                }, this.speed, function () {
+                    self.object.find(".content").before(toolbar.find(".buttons"));
+                    self.object.css({top: '', bottom: -200});
+                    self.object.animate({
+                        bottom: "+=200"
+                    }, self.speed, function () {
+                        self.object.find('.buttons button').prop('disabled', false);     // enabled all control buttons
+                    });
+                });
             }
         };
         this.hide_toolbar.on('click', function() {

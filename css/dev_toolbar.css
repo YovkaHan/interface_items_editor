@@ -1,11 +1,12 @@
 /* Development Toolbar */
 .dev_set {
   position: fixed;
-  top: 20px;
+  top: 15px;
   left: 20px;
   background-color: transparent;
   border: none;
-  opacity: 0.50; }
+  opacity: 0.50;
+  z-index: 1000; }
   .dev_set:hover {
     opacity: 1.0;
     cursor: default; }
@@ -20,7 +21,8 @@
   height: 200px;
   bottom: 0;
   background-color: #9fb4ff;
-  z-index: 100; }
+  z-index: 100;
+  opacity: 0.0; }
   .dev_toolbar .content {
     display: inline-block;
     width: 100%;
