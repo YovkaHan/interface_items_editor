@@ -85,12 +85,12 @@
         <div class="t_row">
           <div class="slider_div">
             <label for="width">Width</label>
-            <input id="width" type="number" max="100" maxlength="3" size="4" value="100">
+            <input id="width" type="number" max="9999" maxlength="5" size="5" value="99">
             <div class="slider" id="width_s"></div>
           </div>
           <div class="slider_div">
             <label for="height">Height</label>
-            <input id="height" type="number" max="100" maxlength="3" size="4" value="100">
+            <input id="height" type="number" max="9999" maxlength="5" size="5" value="99">
             <div class="slider" id="height_s"></div>
           </div>
           <div class="color_div">
@@ -102,10 +102,8 @@
     </div>
   </div>
 
-  <script>function dev_open(){
-    window.d_a = false;    // Flag for Dev Mode
-    window.enter = false;   // Flag of entrance
-    window.alreadyB = false;   // Flag for elements bind
+  <script>
+    function dev_open(){
     if($('.dev_toolbar').css('display')=='none') {
       d_a = true;
       $('.dev_toolbar').css('display','block').animate({
@@ -113,20 +111,19 @@
       }, 500, function () {
       });
     }else {
-      window.d_a = false;    // Flag for Dev Mode
-      window.enter = false;   // Flag of entrance
-      window.alreadyB = false;   // Flag for elements bind
-      $('.dev_toolbar').animate({
-        opacity: "-=1"
-      }, 500, function () {
-        $('.dev_toolbar').css('display','none')
-      });
+      if(!window.alreadyB) {
+        d_a = false;    // Flag for Dev Mode
+        $('.dev_toolbar').animate({
+          opacity: "-=1"
+        }, 500, function () {
+          $('.dev_toolbar').css('display', 'none')
+        });
+      }
     }
   }</script>
   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   <script src="js/ie10-viewport-bug-workaround.js"></script>
-  <script src="js/dev_toolbar.js" defer></script>
-  <script src="js/dev_mode.js" defer></script>
-  <script src="js/action_area.js" defer></script>
-  </body>
-</html>
+   <script src="js/dev_mode.js" defer></script>
+   <script src="js/action_area.js" defer></script>
+   </body>
+ </html>

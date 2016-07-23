@@ -13,10 +13,11 @@
         this.pos_bt = true;
         this.pos_top = false;
         this.object = object;
-        this.hide_toolbar = object.find('.hide_tb');               // "Hide" Button
-        this.show_toolbar = object.find('.show_tb');               // "Show" Button
-        this.show_top_tb = object.find('.show_top_tb');            // "Show at Top" Button
-        this.show_bottom_tb = object.find('.show_bottom_tb');      // "Show at bottom" Button
+        this.hide_toolbar = this.object.find('.hide_tb');               // "Hide" Button
+        this.show_toolbar = this.object.find('.show_tb');               // "Show" Button
+        this.show_top_tb = this.object.find('.show_top_tb');            // "Show at Top" Button
+        this.show_bottom_tb = this.object.find('.show_bottom_tb');      // "Show at bottom" Button
+
         this.hide = function () {
             if (this.opened) {
                 var self = this;                                      // this-copy
@@ -113,49 +114,63 @@
         this.show_bottom_tb.on('click', function() {
             toolbar_obj.show_bt()
         });
+
+        /* ----------------------------------------------- */
+        object.find(".slider").slider();         // Activate class "slider"
+
+        this.width_slider = object.find(".slider#width_s");
+        this.height_slider =  object.find(".slider#height_s");
+
+        this.input_w = object.find("input#width");
+        this.input_h = object.find("input#height");
+
+        this.width_slider.slider( "option", "value", this.input_w.val());
+        this.height_slider.slider( "option", "value", this.input_h.val());
+
+        this.width_slider.slider({
+            change: function( event, ui ) {
+                self.input_w.val(self.width_slider.slider("value"));
+                if(window.isCreated) {
+                    window.ander_c.setWidth(self.width_slider.slider("value"));
+                }
+            }
+        });
+
+        this.height_slider.slider({
+            change: function( event, ui ) {
+                $("input#height").val(self.height_slider.slider("value"));
+                if(window.isCreated)
+                {
+                    window.ander_c.setWidth(  self.width_slider.slider("value"));
+                }
+            }
+        });
+
+        this.input_w.change(function() {
+            self.width_slider.slider( "option", "value", self.input_w.val());
+            if(window.isCreated) {
+                window.ander_c.setWidth(self.input_w.val());
+            }
+        });
+
+        this.input_h.change(function() {
+            height_slider.slider( "option", "value",  self.input_h.val());
+            if(window.isCreated) {
+                window.ander_c.setHeight(self.input_h.val());
+            }
+        });
     }
     /* --------------------------------------- */
 
-    /* Sliders */
-    $(".slider").slider();
-
-    var width_slider =  $(".slider#width_s");
-    var height_slider =  $(".slider#height_s");
-
-    width_slider.slider( "option", "value", $("input#width").val());
-    height_slider.slider( "option", "value", $("input#height").val());
-
-    width_slider.slider({
-        change: function( event, ui ) {
-            $("input#width").val(width_slider.slider("value"));
-            if(window.alreadyB)
-            {
-                window.ander_c.object.css('width', width_slider.slider("value"))
-            }
-        }
-    });
-
-    height_slider.slider({
-        change: function( event, ui ) {
-            $("input#height").val(height_slider.slider("value"));
-        }
-    });
-
-    /*  -- -- --  */
-    $("input#width").change(function() {
-        width_slider.slider( "option", "value", $("input#width").val());
-    });
-
-    $("input#height").change(function() {
-        height_slider.slider( "option", "value", $("input#height").val());
-    });
-
+/*
     $("input#jscolor_id").change(function() {
         if(window.alreadyB)
         {
             window.ander_c.object.css('background-color', '#'+$("input#jscolor_id").val())
         }
-    });
+    });*/
+
+
 
     /* Event "Develop" */
 
@@ -163,6 +178,7 @@
     /*          */
     $('.unbind_tb').on('click', function() {
         window.alreadyB = false;
+        window.isCreated = false;
         circle.css('background','red');
     });
 })();
