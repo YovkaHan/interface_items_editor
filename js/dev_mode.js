@@ -121,14 +121,14 @@
                 this.opened = false;
                 this.object.find('.buttons button').prop('disabled', true);          // disabled all control buttons
                 if (this.pos_bt) {
-                    this.object.animate({
+                    this.object.stop(true).animate({
                         bottom: "-=175"
                     }, this.speed, function () {
                         self.object.find('.buttons button').prop('disabled', false);     // enabled all control buttons
                     });
                 }
                 else if (this.pos_top) {
-                    this.object.animate({
+                    this.object.stop(true).animate({
                         top: "-=175"
                     }, this.speed, function () {
                         self.object.find('.buttons button').prop('disabled', false);     // enabled all control buttons
@@ -141,7 +141,7 @@
                 this.opened = true;
                 this.object.find('.buttons button').prop('disabled', true);          // disabled all control buttons
                 if (this.pos_bt) {
-                    this.object.animate({
+                    this.object.stop(true).animate({
                         bottom: "+=175"
                     }, this.speed, function () {
                         self.object.find('.buttons button').prop('disabled', false);     // enabled all control buttons
@@ -164,12 +164,12 @@
                 this.pos_top = true;
                 this.opened = true;
                 this.object.find('.buttons button').prop('disabled', true);     // enabled all control buttons
-                this.object.animate({
+                this.object.stop(true).animate({
                     bottom: "-=200"
                 }, this.speed, function () {
                     self.object.find(".buttons").before(self.object.find(".content"));
                     self.object.css({bottom: 0, top: -200});
-                    self.object.animate({
+                    self.object.stop(true).animate({
                         top: "+=200"
                     }, self.speed, function () {
                         self.object.find('.buttons button').prop('disabled', false);     // enabled all control buttons
@@ -183,12 +183,12 @@
                 this.pos_top = false;
                 this.opened = true;
                 this.object.find('.buttons button').prop('disabled', true);     // enabled all control buttons
-                this.object.animate({
+                this.object.stop(true).animate({
                     top: "-=200"
                 }, this.speed, function () {
                     self.object.find(".content").before(self.object.find(".buttons"));
                     self.object.css({top: '', bottom: -200});
-                    self.object.animate({
+                    self.object.stop(true).animate({
                         bottom: "+=200"
                     }, self.speed, function () {
                         self.object.find('.buttons button').prop('disabled', false);     // enabled all control buttons
