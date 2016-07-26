@@ -1,7 +1,7 @@
 /* Space out content a bit */
 body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -32,6 +32,10 @@ body {
 }
 
 /* Customize container */
+.container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 @media (min-width: 768px) {
   .container {
     max-width: 730px;

@@ -10,6 +10,8 @@
 
     <title>Bootstrap Sample Page</title>
 
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -18,9 +20,17 @@
 
     <!-- Custom styles for this template -->
     <link href="css/jumbotron-narrow.css" rel="stylesheet">
+    <link href="css/main.min.css" rel="stylesheet">
 	
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
+
+    <!-- jscolor -->
+    <script src="js/jscolor.min.js"></script>
+
+    <!-- <script src="js/processing.min.js"></script>-->
+    <script   src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"   integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="   crossorigin="anonymous"></script>
+
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
@@ -33,56 +43,87 @@
 
   <body>
 
-    <div class="container">
-      <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="#">Home</a></li>
-            <li role="presentation"><a href="#">About</a></li>
-            <li role="presentation"><a href="#">Contact</a></li>
-          </ul>
-        </nav>
-        <h3 class="text-muted">Project name</h3>
+  <div class="my_container">
+    <div class="big_1">
+    <div class="left_side_1">
+      <div class="place">
+        <div class="dev_set" onclick="dev_open();"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></div>
       </div>
-
-      <div class="jumbotron">
-        <h1>Jumbotron heading</h1>
-        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
+      <div class="navigation"></div>
+    </div>
+    <div class="left_side_2">
+      <div class="profile"></div>
+    </div>
+    <div class="action_"></div>
+    <div class="right_side">
+      <div class="settings"></div>
+      <div class="commercial"></div>
+    </div>
       </div>
+    <div class="big_2">
+      <div class="container-fluid"></div>
+    </div>
+  </div>
 
-      <div class="row marketing">
-        <div class="col-lg-6">
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+    <div class="dev_toolbar">
+      <div class="buttons">
+        <button class="hide_tb"><span>Hide</span></button>
+        <button class="show_tb"><span>Show</span></button>
+        <button class="show_top_tb"><span>Show top</span></button>
+        <button class="show_bottom_tb"><span>Show bottom</span></button>
+        <button class="unbind_tb"><span>Unbind</span></button>
+        <div class="circle" style="	    width: 20px;
+    height: 20px;
+    background: red;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    float: left;
+    margin-top: 3px;"></div>
+      </div>
+      <div class="content">
+        <div class="t_row">
+          <div class="slider_div">
+            <label for="width">Width</label>
+            <input id="width" type="number" max="9999" maxlength="5" size="5" value="99">
+            <div class="slider" id="width_s"></div>
+          </div>
+          <div class="slider_div">
+            <label for="height">Height</label>
+            <input id="height" type="number" max="9999" maxlength="5" size="5" value="99">
+            <div class="slider" id="height_s"></div>
+          </div>
+          <div class="color_div">
+            <label for="jscolor_id">Color</label>
+            <input id="jscolor_id" class="jscolor">
+          </div>
         </div>
-
-        <div class="col-lg-6">
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
       </div>
+    </div>
+  </div>
 
-      <footer class="footer">
-        <p>&copy; 2015 Company, Inc.</p>
-      </footer>
-
-    </div> <!-- /container -->
-
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
-  </body>
-</html>
+  <script>
+    function dev_open(){
+    if($('.dev_toolbar').css('display')=='none') {
+      d_a = true;
+      $('.dev_toolbar').css('display','block').animate({
+        opacity: "+=1"
+      }, 500, function () {
+      });
+    }else {
+      if(!window.alreadyB) {
+        d_a = false;    // Flag for Dev Mode
+        $('.dev_toolbar').animate({
+          opacity: "-=1"
+        }, 500, function () {
+          $('.dev_toolbar').css('display', 'none')
+        });
+      }
+    }
+  }</script>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script src="js/ie10-viewport-bug-workaround.js"></script>
+   <script src="js/dev_mode.js" defer></script>
+   <script src="js/action_area.js" defer></script>
+   </body>
+ </html>

@@ -4,19 +4,17 @@ module.exports = function(grunt) {
 		sass: {
 			dist: {
 				files: {
-					'css/base.css' : 'scss/base.scss',
-					'css/microsoft_nav.css' : 'scss/microsoft_nav.scss',
-					'css/drop_box_hero.css' : 'scss/drop_box_hero.scss',
-					'css/invision_signin.css' : 'scss/invision_signin.scss',
-					'css/oculus_div.css' : 'scss/oculus_div.scss',
-					'css/apple_footer.css' : 'scss/apple_footer.scss'
+					'css/action_area.css' : 'scss/action_area.scss',
+					'css/dev_toolbar.css' : 'scss/dev_toolbar.scss',
+					'css/body.css' : 'scss/body.scss',
+					'css/my_container.css' : 'scss/my_container.scss',
 				}
 			}
 		},
 		cssmin: {
 			foo: {
 				files: {
-					'css/main.min.css' : ['css/base.css', 'css/microsoft_nav.css', 'css/drop_box_hero.css', 'css/invision_signin.css', 'css/oculus_div.css', 'css/apple_footer.css']
+					'css/main.min.css' : ['css/action_area.css', 'css/dev_toolbar.css', 'css/body.css', 'css/my_container.css']
 				}
 			}
 		},
