@@ -1,4 +1,4 @@
-# Logs
+﻿# Logs
 logs
 *.log
 npm-debug.log*
@@ -83,6 +83,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+app_dir/.idea/
 .sass-cache
 node_serv.js
 записки.txt
