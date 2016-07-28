@@ -1,11 +1,12 @@
 /* Development Toolbar */
 .dev_set {
   position: fixed;
-  top: 15px;
-  left: 20px;
+  top: 25px;
+  left: 25px;
   background-color:transparent;
   border: none;
   opacity: 0.50;
+  z-index: 100;
 
   &:hover {
     opacity: 1.0;
@@ -46,6 +47,7 @@
          margin: 5px;
          width: 100px;
          border: 1px solid #9fb4ff;
+         height: 100px;
          text-align: center;
 
          input {
