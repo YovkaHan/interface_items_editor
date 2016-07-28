@@ -1,6 +1,5 @@
 (function(){
     window.d_a = false;    // Flag for Dev Mode
-    window.first_enter = false;   // Flag of entrance
     window.alreadyB = false;   // Flag for elements bind
     window.ander_c = null;    // Empty null-Object of 'Dev_Edit' class
 
@@ -22,10 +21,9 @@
                     circle.css('background', 'red');
                 });
 
-                var divs = $(".my_container").find('div').not(".place").not(".dev_set").not('.left_side_1');
+                var divs = $(".my_container").find('div').not(".place").not(".dev_set");
                 divs_c = divs;
                 divs.each(function () {
-                    if (window.first_enter) {
                         $(this).on('click', function () {
                             circle.css('background', '#04bf04');
                             if (window.alreadyB == false) {
@@ -34,13 +32,10 @@
                                 window.ander_c.bindOn();
                             }
                         });
-                    }
-                    window.first_enter = true;
                 });
             }
             if (window.d_a == false) {                  // Disable Dev_Mode
                 console.log("DEV_MODE_OFF");
-                window.first_enter = false;   // Flag of entrance
 
                 toolbar_obj = null;
                 divs_c.each(function () {
@@ -61,30 +56,71 @@
             var res =  self.object.parent().css('width');
             if (res.indexOf('px') != -1) {
                 return res.slice(0,res.indexOf('px'));
+            } else {
+                return res;
             }
         };
         this.getParentHeight= function() {
             var res =  self.object.parent().css('height');
             if (res.indexOf('px') != -1) {
                 return res.slice(0,res.indexOf('px'));
+            } else {
+                return res;
             }
         };
         this.getWidth = function() {
             var res =  self.object.css('width');
             if (res.indexOf('px') != -1) {
                 return res.slice(0,res.indexOf('px'));
+            } else {
+                return res;
             }
         };
         this.getHeight = function() {
             var res =  self.object.css('height');
             if (res.indexOf('px') != -1) {
                 return res.slice(0,res.indexOf('px'));
+            } else {
+                return res;
+            }
+        };
+        this.getLeft = function() {
+            var res =  self.object.css('left');
+            if (res.indexOf('px') != -1) {
+                return res.slice(0,res.indexOf('px'));
+            } else {
+                return res;
+            }
+        };
+        this.getTop = function() {
+            var res =  self.object.css('top');
+            if (res.indexOf('px') != -1) {
+                return res.slice(0,res.indexOf('px'));
+            } else {
+                return res;
+            }
+        };
+        this.getZ_index = function() {
+            var res =  self.object.css('z-index');
+            if (res.indexOf('px') != -1) {
+                return res.slice(0,res.indexOf('px'));
+            } else {
+                return res;
             }
         };
         this.getBGColor = function() {return self.object.css('background-color')};
         /*                                      --Setters--                                     */
         this.setWidth = function(width) {self.object.css('width', width)};
         this.setHeight = function(height) {self.object.css('height', height)};
+        this.setLeft = function(left) {
+            self.object.css('left', left)
+        };
+        this.setTop = function(top) {
+            self.object.css('top', top);
+        };
+        this.setZ_index = function(z_index) {
+            self.object.css('z-index', z_index);
+        };
 
         this.bindOn = function() {
             toolbar.activateBind(true);
@@ -95,8 +131,14 @@
         /*                                      --Set binding--                                 */
         toolbar.setWidth_slider(self.getWidth(),self.getParentWidth());
         toolbar.setHeight_slider(self.getHeight(),self.getParentHeight());
+        toolbar.setLeft_slider(self.getLeft(),(self.getParentWidth()-self.getWidth()));
+        toolbar.setTop_slider(self.getTop(),self.getParentHeight());
+        toolbar.setZ_index_slider(self.getZ_index());
         toolbar.setInput_w(self.getWidth());
         toolbar.setInput_h(self.getHeight());
+        toolbar.setInput_l(self.getLeft());
+        toolbar.setInput_t(self.getTop());
+        toolbar.setInput_z_i(self.getZ_index());
         toolbar.setJsColor(self.getBGColor());
 
     }
@@ -213,16 +255,28 @@
 
         this.width_slider = object.find(".slider#width_s");
         this.height_slider =  object.find(".slider#height_s");
+        this.left_slider =  object.find(".slider#left_s");
+        this.top_slider =  object.find(".slider#top_s");
+        this.z_index_slider =  object.find(".slider#z_index_s");
 
         this.input_w = object.find("input#width");
         this.input_h = object.find("input#height");
+        this.input_l = object.find("input#left");
+        this.input_t = object.find("input#top");
+        this.input_z_i = object.find("input#z_index");
 
         this.jscolor = object.find("input#jscolor_id");
 
         this.width_slider.slider( "option", "value", 0);
         this.height_slider.slider( "option", "value", 0);
+        this.left_slider.slider( "option", "value", 0);
+        this.top_slider.slider( "option", "value", 0);
+        this.z_index_slider.slider( "option", "value", 0);
         this.input_w.val(0);
         this.input_h.val(0);
+        this.input_l.val(0);
+        this.input_t.val(0);
+        this.input_z_i.val(0);
         /*--                                    Setters                                 --*/
         this.setWidth_slider = function(num) {
             if(arguments[1])
@@ -248,11 +302,49 @@
                 value: num
             });
         };
+        this.setLeft_slider = function(num) {
+            if(arguments[1])
+            {
+                self.left_slider.slider({
+                    value: num,
+                    max: arguments[1]
+                });
+            }
+            self.left_slider.slider({
+                value: num
+            });
+        };
+        this.setTop_slider = function(num) {
+            if(arguments[1])
+            {
+                self.top_slider.slider({
+                    value: num,
+                    max: arguments[1]
+                });
+            }
+            self.top_slider.slider({
+                value: num
+            });
+        };
+        this.setZ_index_slider = function(num) {
+            self.z_index_slider.slider({
+                value: num
+            });
+        };
         this.setInput_w = function(num) {
             self.input_w.val(num);
         };
         this.setInput_h = function(num) {
             self.input_h.val(num);
+        };
+        this.setInput_l = function(num) {
+            self.input_l.val(num);
+        };
+        this.setInput_t = function(num) {
+            self.input_t.val(num);
+        };
+        this.setInput_z_i = function(num) {
+            self.input_z_i.val(num);
         };
 
         this.setJsColor = function (color_str) {
@@ -270,6 +362,7 @@
                 if(self.setActive){
                     self.input_w.val(self.width_slider.slider("value"));
                     window.ander_c.setWidth(self.width_slider.slider("value"));
+                    self.setLeft_slider(self.input_l.val(), (window.ander_c.getParentWidth()-window.ander_c.getWidth() > 0)  ? window.ander_c.getParentWidth()-window.ander_c.getWidth() :0);
                 }
             }
         });
@@ -279,6 +372,32 @@
                 if(self.setActive){
                     self.input_h.val(self.height_slider.slider("value"));
                     window.ander_c.setHeight( self.height_slider.slider("value"));
+                }
+            }
+        });
+
+        this.left_slider.slider({
+            change: function( event, ui ) {
+                if(self.setActive){
+                    self.input_l.val(self.left_slider.slider("value"));
+                    window.ander_c.setLeft( self.left_slider.slider("value"));
+                }
+            }
+        });
+
+        this.top_slider.slider({
+            change: function( event, ui ) {
+                if(self.setActive){
+                    self.input_t.val(self.top_slider.slider("value"));
+                    window.ander_c.setTop( self.top_slider.slider("value"));
+                }
+            }
+        });
+        this.z_index_slider.slider({
+            change: function( event, ui ) {
+                if(self.setActive){
+                    self.input_z_i.val(self.z_index_slider.slider("value"));
+                    window.ander_c.setZ_index( self.z_index_slider.slider("value"));
                 }
             }
         });
@@ -294,6 +413,26 @@
             if(self.setActive){
                 self.setHeight_slider(self.input_h.val());
                 window.ander_c.setHeight(self.input_h.val());
+            }
+        });
+
+        this.input_l.change(function() {
+            if(self.setActive){
+                self.setLeft_slider(self.input_l.val(), (window.ander_c.getParentWidth()-window.ander_c.getWidth()));
+                window.ander_c.setLeft(self.input_l.val());
+            }
+        });
+
+        this.input_t.change(function() {
+            if(self.setActive){
+                self.setTop_slider(self.input_t.val());
+                window.ander_c.setTop(self.input_t.val());
+            }
+        });
+        this.input_z_i.change(function() {
+            if(self.setActive){
+                self.setZ_index_slider(self.input_z_i.val());
+                window.ander_c.setZ_index(self.input_z_i.val());
             }
         });
 

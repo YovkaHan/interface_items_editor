@@ -1,11 +1,12 @@
 /* Development Toolbar */
 .dev_set {
   position: fixed;
-  top: 15px;
-  left: 20px;
+  top: 25px;
+  left: 25px;
   background-color: transparent;
   border: none;
-  opacity: 0.50; }
+  opacity: 0.50;
+  z-index: 100; }
   .dev_set:hover {
     opacity: 1.0;
     cursor: default; }
@@ -34,6 +35,7 @@
         margin: 5px;
         width: 100px;
         border: 1px solid #9fb4ff;
+        height: 100px;
         text-align: center; }
         .dev_toolbar .content .t_row .slider_div input {
           color: #ff433f;

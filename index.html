@@ -44,25 +44,14 @@
   <body>
 
   <div class="my_container">
-    <div class="big_1">
-    <div class="left_side_1">
-      <div class="place">
-        <div class="dev_set" onclick="dev_open();"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></div>
-      </div>
-      <div class="navigation"></div>
+    <div class="place">
+      <div class="dev_set" onclick="dev_open();"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></div>
     </div>
-    <div class="left_side_2">
-      <div class="profile"></div>
-    </div>
+    <div class="side_tb"></div>
+    <div class="profile"></div>
     <div class="action_"></div>
-    <div class="right_side">
-      <div class="settings"></div>
-      <div class="commercial"></div>
-    </div>
-      </div>
-    <div class="big_2">
-      <div class="container-fluid"></div>
-    </div>
+    <div class="settings"></div>
+    <div class="commercial"></div>
   </div>
 
     <div class="dev_toolbar">
@@ -85,13 +74,28 @@
         <div class="t_row">
           <div class="slider_div">
             <label for="width">Width</label>
-            <input id="width" type="number" max="9999" maxlength="5" size="5" value="99">
+            <input id="width" type="number" max="9999" maxlength="5" size="5" value="0">
             <div class="slider" id="width_s"></div>
           </div>
           <div class="slider_div">
             <label for="height">Height</label>
-            <input id="height" type="number" max="9999" maxlength="5" size="5" value="99">
+            <input id="height" type="number" max="9999" maxlength="5" size="5" value="0">
             <div class="slider" id="height_s"></div>
+          </div>
+          <div class="slider_div">
+            <label for="left">Positon</label>
+            <input id="left" type="number" max="9999" maxlength="5" size="5" value="0">
+            <div class="slider" id="left_s"></div>
+          </div>
+          <div class="slider_div">
+            <label for="top">Top</label>
+            <input id="top" type="number" max="9999" maxlength="5" size="5" value="0">
+            <div class="slider" id="top_s"></div>
+          </div>
+          <div class="slider_div">
+            <label for="z_index">Z Index</label>
+            <input id="z_index" type="number" max="99" maxlength="2" size="3" value="0">
+            <div class="slider" id="z_index_s"></div>
           </div>
           <div class="color_div">
             <label for="jscolor_id">Color</label>
