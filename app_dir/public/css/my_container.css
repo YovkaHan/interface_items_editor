@@ -1,0 +1,55 @@
+.my_container {
+  position: absolute;
+  width: 100%;
+  height: 1000px;
+  background-color: #f9faff;
+  overflow-y: visible;
+  overflow-x: hidden;
+  z-index: -10; }
+  .my_container .side_tb {
+    position: absolute;
+    top: 54px;
+    left: 6px;
+    width: 50px;
+    height: 700px;
+    background-color: #5cd44e;
+    z-index: 0;
+    overflow-x: hidden; }
+  .my_container .profile {
+    position: absolute;
+    top: 6px;
+    left: 62px;
+    width: 240px;
+    height: 748px;
+    background-color: #8098d4;
+    z-index: 0;
+    overflow-x: hidden; }
+  .my_container .action_ {
+    position: absolute;
+    left: 308px;
+    top: 6px;
+    width: 792px;
+    height: 748px;
+    background-color: #0500d4;
+    z-index: 0;
+    overflow-x: hidden; }
+  .my_container .settings {
+    position: absolute;
+    left: 1106px;
+    top: 6px;
+    width: 238px;
+    height: 42px;
+    background-color: #d40016;
+    z-index: 0;
+    overflow-x: hidden; }
+  .my_container .commercial {
+    position: absolute;
+    left: 1106px;
+    top: 54px;
+    width: 238px;
+    height: 700px;
+    background-color: #15d418;
+    z-index: 0;
+    overflow-x: hidden; }
+
+/*# sourceMappingURL=my_container.css.map */

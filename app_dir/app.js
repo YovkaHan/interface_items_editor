@@ -1,8 +1,11 @@
 var express = require('express');
+var session = require('express-session');
 var http = require('http');
 var path = require('path');
 var config = require('./config');
 var log = require('./libs/log')(module);
+var mongoose = require('./libs/mongoose');
+var HttpError = require('./error').HttpError;
 
 var app = express();
 
@@ -21,11 +24,24 @@ app.use(express.bodyParser());
 
 app.use(express.cookieParser());
 
-app.use(app.router);
+var MongoStore = require('connect-mongo')(session);
+var mongoose_store = new MongoStore({mongooseConnection: mongoose.connection});
 
-app.get('/', function(req, res, next) {
-  res.end("Test");
-});
+app.use(express.session({
+  secret: config.get('session:secret'),
+  key: config.get('session:key'),
+  cookie: config.get('session:cookie'),
+  saveUninitialized: false,
+  resave: false,
+  store: mongoose_store
+}));
+
+
+app.use(require('./middleware/sendHttpError'));
+app.use(require('./middleware/loadUser'));
+
+app.use(app.router);
+require('./routes')(app);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -42,21 +58,4 @@ http.createServer(app).listen(config.get('port'), function(){
   log.info('Express server listening on port ' + config.get('port'));
 });
 
-/*
-
-var routes = require('./routes');
-var user = require('./routes/user');
-
-
-// all environments
-
-
-
-// development only
-if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
-}
-
-app.get('/', routes.index);
-app.get('/users', user.list);*/
 

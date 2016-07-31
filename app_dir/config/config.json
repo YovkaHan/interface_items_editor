@@ -9,5 +9,61 @@
         }
       }
     }
-  }
+  },
+  "session": {
+    "secret": "ChinChopper",
+    "key": "sid",
+    "cookie": {
+      "path": "/",
+      "httpOnly": true,
+      "maxAge": null
+    }
+  },
+  "elements": [
+    {
+      "name" : "side_tb",
+      "width": "",
+      "height": "",
+      "top": "",
+      "left": "",
+      "background_color": "",
+      "z_index": "0"
+    },
+    {
+      "name" : "profile",
+      "width": "",
+      "height": "",
+      "top": "",
+      "left": "",
+      "background_color": "",
+      "z_index": "0"
+    },
+    {
+      "name" : "action_",
+      "width": "",
+      "height": "",
+      "top": "",
+      "left": "",
+      "background_color": "",
+      "z_index": "0"
+    },
+    {
+      "name" : "settings",
+      "width": "",
+      "height": "",
+      "top": "",
+      "left": "",
+      "background_color": "",
+      "z_index": "0"
+    },
+    {
+      "name" : "commercial",
+      "width": "",
+      "height": "",
+      "top": "",
+      "left": "",
+      "background_color": "",
+      "z_index": "0"
+    }
+  ]
 }

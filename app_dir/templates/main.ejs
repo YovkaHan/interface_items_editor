@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Bootstrap Sample Page">
+    <meta name="author" content="Igor Yovka">
+    <link rel="icon" href="img/favicon.ico">
+
+    <title>Interface Editor</title>
+
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/jumbotron-narrow.css" rel="stylesheet">
+    <link href="css/main.min.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+
+    <!-- jscolor -->
+    <script src="js/jscolor.min.js"></script>
+
+    <!-- <script src="js/processing.min.js"></script>-->
+    <script   src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"   integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="   crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div class="my_container">
+    <div class="place">
+        <div class="dev_set" onclick="dev_open();"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></div>
+    </div>
+    <div class="side_tb" style="
+            width: <%=user.elements[0].width%>;
+            height: <%=user.elements[0].height%>;
+            top: <%=user.elements[0].top%>;
+            left: <%=user.elements[0].left%>;
+            background-color: <%=user.elements[0].background_color%>;
+            z-index: <%=user.elements[0].z_index%>;
+            "></div>
+    <div class="profile"  style="
+            width: <%=user.elements[1].width%>;
+            height: <%=user.elements[1].height%>;
+            top: <%=user.elements[1].top%>;
+            left: <%=user.elements[1].left%>;
+            background-color: <%=user.elements[1].background_color%>;
+            z-index: <%=user.elements[1].z_index%>;
+            "></div>
+    <div class="action_" style="
+            width: <%=user.elements[2].width%>;
+            height: <%=user.elements[2].height%>;
+            top: <%=user.elements[2].top%>;
+            left: <%=user.elements[2].left%>;
+            background-color: <%=user.elements[2].background_color%>;
+            z-index: <%=user.elements[2].z_index%>;
+            "></div>
+    <div class="settings" style="
+            width: <%=user.elements[3].width%>;
+            height: <%=user.elements[3].height%>;
+            top: <%=user.elements[3].top%>;
+            left: <%=user.elements[3].left%>;
+            background-color: <%=user.elements[3].background_color%>;
+            z-index: <%=user.elements[3].z_index%>;
+            "></div>
+    <div class="commercial" style="
+            width: <%=user.elements[4].width%>;
+            height: <%=user.elements[4].height%>;
+            top: <%=user.elements[4].top%>;
+            left: <%=user.elements[4].left%>;
+            background-color: <%=user.elements[4].background_color%>;
+            z-index: <%=user.elements[4].z_index%>;
+            "></div>
+</div>
+
+<div class="dev_toolbar">
+    <div class="buttons">
+        <button class="hide_tb"><span>Hide</span></button>
+        <button class="show_tb"><span>Show</span></button>
+        <button class="show_top_tb"><span>Show top</span></button>
+        <button class="show_bottom_tb"><span>Show bottom</span></button>
+        <button class="unbind_tb"><span>Unbind</span></button>
+        <div class="circle" style="	    width: 20px;
+    height: 20px;
+    background: red;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    float: left;
+    margin-top: 3px;"></div>
+    </div>
+    <div class="content">
+        <form class="form-horizontal edition-form" name="edition-form">
+            <input id="element" type="hidden" name="element" value="">
+        <div class="t_row">
+            <div class="slider_div">
+                <label for="width">Width</label>
+                <input id="width" name="width" type="number" max="9999" maxlength="5" size="5" value="0">
+                <div class="slider" id="width_s"></div>
+            </div>
+            <div class="slider_div">
+                <label for="height">Height</label>
+                <input id="height" name="height" type="number" max="9999" maxlength="5" size="5" value="0">
+                <div class="slider" id="height_s"></div>
+            </div>
+            <div class="slider_div">
+                <label for="left">Positon</label>
+                <input id="left" name="left" type="number" max="9999" maxlength="5" size="5" value="0">
+                <div class="slider" id="left_s"></div>
+            </div>
+            <div class="slider_div">
+                <label for="top">Top</label>
+                <input id="top" name="top" type="number" max="9999" maxlength="5" size="5" value="0">
+                <div class="slider" id="top_s"></div>
+            </div>
+            <div class="slider_div">
+                <label for="z_index">Z Index</label>
+                <input id="z_index" name="z_index" type="number" max="99" maxlength="2" size="3" value="0">
+                <div class="slider" id="z_index_s"></div>
+            </div>
+            <div class="color_div">
+                <label for="jscolor_id">Color</label>
+                <input id="jscolor_id" name="background_color" class="jscolor">
+            </div>
+            <button type="submit" class="save_tb"><span>Save</span></button>
+
+        </div>
+        </form>
+    </div>
+</div>
+</div>
+
+<script>
+    function dev_open(){
+        if($('.dev_toolbar').css('display')=='none') {
+            d_a = true;
+            $('.dev_toolbar').css('display','block').animate({
+                opacity: "+=1"
+            }, 500, function () {
+            });
+        }else {
+            if(!window.alreadyB) {
+                d_a = false;    // Flag for Dev Mode
+                $('.dev_toolbar').animate({
+                    opacity: "-=1"
+                }, 500, function () {
+                    $('.dev_toolbar').css('display', 'none')
+                });
+            }
+        }
+    }</script>
+<script>
+    $(document.forms['edition-form']).on('submit', function() {
+        var form = $(this);
+
+        $('.error', form).html('');
+
+        $.ajax({
+            url: "/main",
+            method: "POST",
+            data: form.serialize(),
+            complete: function() {
+                $(":submit", form).button("reset");
+            },
+            statusCode: {
+                200: function() {
+                   console.log('OK');
+                },
+                403: function(jqXHR) {
+                    var error = JSON.parse(jqXHR.responseText);
+                    $('.error', form).html(error.message);
+                }
+            }
+        });
+        return false;
+    });
+</script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="js/ie10-viewport-bug-workaround.js"></script>
+<script src="js/dev_mode.js" defer></script>
+<script src="js/action_area.js" defer></script>
+</body>
+</html>
