@@ -54,7 +54,7 @@ schema.statics.saveElement = function(id ,element, data, callback) {
             callback.elements[num].height = data.height+'px';
             callback.elements[num].top = data.top+'px';
             callback.elements[num].left = data.left+'px';
-            callback.elements[num].background_color = data.background_color;
+            callback.elements[num].background_color = data.background_color.indexOf('rgb') >= 0 ? data.background_color : '#'+data.background_color;
             callback.elements[num].z_index = data.z_index;
 
             console.log(callback);

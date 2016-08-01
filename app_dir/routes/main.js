@@ -4,7 +4,6 @@ var AuthError = require('../models/user').AuthError;
 
 exports.get = function(req, res) {
   res.render('../templates/main', {
-          user: req.user
   });
 };
 exports.post = function(req,res, next) {

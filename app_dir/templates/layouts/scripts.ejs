@@ -1,0 +1,12 @@
+<script>
+    <%- if (user) { %>
+        $('#logout').on('click', function() {
+            console.log('HELLO');
+            $.ajax({
+                url: "/logout",
+                method: "POST"
+            });
+            return false;
+        })
+    <%- } %>
+</script>

@@ -46,11 +46,19 @@ require('./routes')(app);
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(err, req, res, next) {
-  if(app.get('env') == 'development') {
-    var errorHandler = express.errorHandler();
-    errorHandler(err, req, res, next);
+  if (typeof err == 'number') {
+    err = new HttpError(err);
+  }
+  if (err instanceof HttpError) {
+    res.sendHttpError(err);
   } else {
-    res.send(500);
+    if(app.get('env') == 'development') {
+      express.errorHandler()(err, req, res, next);
+    } else {
+      log.error(err);
+      err = new HttpError(500);
+      res.sendHttpError(err);
+    }
   }
 });
 

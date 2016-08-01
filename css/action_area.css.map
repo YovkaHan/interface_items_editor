@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,YAAa;EAEX,UAAU,EAAE,mBAA0B;EACvC;;MAEI",
-"sources": ["../scss/action_area.scss"],
-"names": [],
-"file": "action_area.css"
-}

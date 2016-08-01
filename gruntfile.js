@@ -4,24 +4,24 @@ module.exports = function(grunt) {
 		sass: {
 			dist: {
 				files: {
-					'css/action_area.css' : 'scss/action_area.scss',
-					'css/dev_toolbar.css' : 'scss/dev_toolbar.scss',
-					'css/body.css' : 'scss/body.scss',
-					'css/my_container.css' : 'scss/my_container.scss',
+					'app_dir/public/css/action_area.css' : 'app_dir/public/scss/action_area.scss',
+					'app_dir/public/css/dev_toolbar.css' : 'app_dir/public/scss/dev_toolbar.scss',
+					'app_dir/public/css/body.css' : 'app_dir/public/scss/body.scss',
+					'app_dir/public/css/my_container.css' : 'app_dir/public/scss/my_container.scss',
 				}
 			}
 		},
 		cssmin: {
 			foo: {
 				files: {
-					'css/main.min.css' : ['css/action_area.css', 'css/dev_toolbar.css', 'css/body.css', 'css/my_container.css']
+					'app_dir/public/css/main.min.css' : ['app_dir/public/css/action_area.css', 'app_dir/public/css/dev_toolbar.css', 'app_dir/public/css/body.css', 'app_dir/public/css/my_container.css']
 				}
 			}
 		},
 		uncss: {
 			dist: {
 				files : {
-						'css/main.min.css' : 'index.html'
+						'app_dir/public/css/main.min.css' : 'app_dir/index.html'
 				}
 			}
 		},
